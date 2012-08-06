@@ -1,6 +1,7 @@
-Daniel Campo
-Mobile Development
-Full Sail University
----------------------------
+Daniel Campo<br />
+Mobile Development<br />
+Full Sail University<br />
+<br />
 
-Course: Scalable Data Infrastructures
+Scalable Data Infrastructures
+------------------------------------------------------
