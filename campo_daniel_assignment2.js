@@ -1,6 +1,7 @@
 var pokemonMaster = "Daniel", pokemonGoal = 5;
 var pokemonCaptured = ["Abra", "Pikachu", "Charmander"];
 
+// Procedure Function
 var capturedPokemon = function(pokemonCaptured) {
 	if (pokemonCaptured.length == pokemonGoal) {
 		console.log("Great! It looks like I've reached my goal of capturing " + pokemonGoal + " Pokemon!");
@@ -11,6 +12,27 @@ var capturedPokemon = function(pokemonCaptured) {
 	}
 };
 
+// Boolean Function
+var goPokemonHunting = function(goal, captured) {
+	var pokemonGoal = goal;
+	var pokemonCaptured = captured;
+	var goHunting;
+	
+	if (pokemonCaptured != pokemonGoal) {
+		goHunting = true;
+		console.log("Do I need to go hunt some more Pokemon? " + goHunting);		
+	}
+	
+	else {
+		goHunting = false;
+		console.log("Do I need to go hunt some more Pokemon? " + goHunting);
+	}
+	
+	return goHunting;
+}
+
+
+// Number Function
 var pokemonLeft = function(pokemonCaptured) {
 	var pokemonCapturedTotal = pokemonCaptured.length;
 	
@@ -23,3 +45,4 @@ var pokemonLeft = function(pokemonCaptured) {
 	
 	return pokemonCapturedTotal;
 }
+
