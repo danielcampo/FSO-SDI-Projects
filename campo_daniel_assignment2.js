@@ -10,3 +10,16 @@ var capturedPokemon = function(pokemonCaptured) {
 		console.log("Nice! I've reached my goal of " + pokemonGoal + " Pokemon!");
 	}
 };
+
+var pokemonLeft = function(pokemonCaptured) {
+	var pokemonCapturedTotal = pokemonCaptured.length;
+	
+	while(pokemonCapturedTotal < pokemonGoal) {
+		var pokemonRemaining = pokemonGoal - pokemonCapturedTotal;
+		console.log("I've captured a total of " + pokemonCapturedTotal + " Pokemon so I haven't reached my goal.");
+		console.log("I have " + pokemonRemaining + " Pokemon left to capture.");
+		pokemonCapturedTotal++;
+	}
+	
+	return pokemonCapturedTotal;
+}
