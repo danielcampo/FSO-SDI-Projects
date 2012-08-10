@@ -46,3 +46,12 @@ var pokemonLeft = function(pokemonCaptured) {
 	return pokemonCapturedTotal;
 }
 
+// String Function
+var interestedInPokemon = function(name1, name2) {
+	var pokemonFirst = name1, pokemonSecond = name2;
+	var pokemonInterestedInList = pokemonFirst + " and a " + pokemonSecond;
+	
+	console.log("For my remaining two Pokemon I would really love to capture a " + pokemonInterestedInList);
+	
+}
+
