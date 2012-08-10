@@ -12,6 +12,8 @@ var capturedPokemon = function(pokemonCaptured) {
 	}
 };
 
+capturedPokemon(pokemonCaptured);
+
 // Boolean Function
 var goPokemonHunting = function(goal, captured) {
 	var pokemonGoal = goal;
@@ -30,6 +32,7 @@ var goPokemonHunting = function(goal, captured) {
 	
 	return goHunting;
 }
+goPokemonHunting(pokemonGoal, pokemonCaptured);
 
 
 // Number Function
@@ -46,12 +49,32 @@ var pokemonLeft = function(pokemonCaptured) {
 	return pokemonCapturedTotal;
 }
 
+pokemonLeft(pokemonCaptured);
+
 // String Function
 var interestedInPokemon = function(name1, name2) {
 	var pokemonFirst = name1, pokemonSecond = name2;
 	var pokemonInterestedInList = pokemonFirst + " and a " + pokemonSecond;
 	
-	console.log("For my remaining two Pokemon I would really love to capture a " + pokemonInterestedInList);
+	console.log("For my remaining two Pokemon I would really love to capture a " + pokemonInterestedInList +".");
+	
+	return(pokemonInterestedInList);
 	
 }
 
+interestedInPokemon("Squirtle", "Bulbasaur")
+
+// Array Function
+var pokemonWrapUp = function(goal, addToPokemonList) {
+	var preferredLineUp = addToPokemonList, 
+		pokemonCapturedGoal = goal,
+		pokemonCurrentTotal = preferredLineUp.length;
+		
+	for(currentTotal = 3; currentTotal <= 4; currentTotal++) {
+	
+		console.log("I would really love to add a " + preferredLineUp[currentTotal] + " as my number " + (currentTotal+1) + " Pokemon in my roster.");
+	}
+	
+	return preferredLineUp;
+}
+console.log(pokemonWrapUp(pokemonCaptured, pokemonCaptured.concat(["Squirtle", "Bulbasaur"])));
