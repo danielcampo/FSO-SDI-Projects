@@ -8,47 +8,46 @@
 var console;
 
 var checkPhoneNum = function(myString) {
-
 	var stringLength = myString.length; /* Get length of string */
+	
 	var stringMinLength = 10; /* Maximum Length of a Phone Number (Includes Hyphens) */
 	var stringMaxLength = 12; /* Maximum Length of a Phone Number (Includes Hyphens) */
+	
 	var stringSeparator = "-";
-	var firstHyphen = 3, secondHyphen = 7;
 	
-	var firstHyphenCheck = myString.charAt(firstHyphen);
-	var secondHyphenCheck = myString.charAt(secondHyphen);	
-	console.log("String Analysis Results");
-	console.log("-----------------------------------------");	
-	console.log("-----------------------------------------");
-	console.log("First Location: "+firstHyphenCheck);
-	console.log(" ");
-	console.log("Second Location: "+secondHyphenCheck);	
-	console.log(" ");
-	console.log("String Length: "+stringLength);	
-	console.log("-----------------------------------------");
-	console.log(" ");	
-	console.log("Result");		
-	console.log("-------------");
-	console.log(" ");	
+	var firstHyphenIndex = 3, secondHyphenIndex = 7;
+	
+	var firstHyphenChar = myString.charAt(firstHyphenIndex);
+	var secondHyphenChar = myString.charAt(secondHyphenIndex);
+	
+	var phoneAreaCode = myString.substring(0, myString.indexOf(stringSeparator, 0));
+	var phonePrefix = myString.substring(myString.indexOf(stringSeparator, 0)+1, myString.lastIndexOf(stringSeparator, 12));
+	var phoneSuffix = myString.substring(8, 12);	
 	
 	
-	if (stringLength > stringMaxLength) {
-		console.log("Too Many Characters.");
+	if (stringLength > stringMaxLength || stringLength < stringMinLength || firstHyphenChar != stringSeparator || secondHyphenChar != stringSeparator) {
 		return false;
 	}
 	
-	else if (stringLength < stringMinLength) {
-		console.log("Too Little Characters.");
-		return false;
-	}
-	
-	else if (firstHyphen != stringSeparator || secondHyphen != stringSeparator) {
-		console.log("Improperly Formatted. Use XXX"+stringSeparator+"XXX"+stringSeparator+"XXXX (Include '"+stringSeparator+"')");
-		return false;
-	
-	}
-	
+	else {	
+		return true;
+	};
 	
 };
 
-checkPhoneNum("305-576-1234");
+var phoneCorrect = "123-456-7890", phoneIncorrect = "1234567890";
+
+console.log("Phone Check Function");
+console.log("-------------------------");
+
+if (checkPhoneNum(phoneCorrect)) {
+	console.log("String: "+phoneCorrect);
+	console.log("Does a string follow a 123-456-7890 pattern like a phone number? "+checkPhoneNum(phoneCorrect));
+}
+
+console.log(" ");
+
+if (!checkPhoneNum(phoneIncorrect)) {
+	console.log("String: "+phoneIncorrect);
+	console.log("Does a string follow a 123-456-7890 pattern like a phone number? "+checkPhoneNum(phoneIncorrect));
+}
