@@ -173,3 +173,34 @@ function functionStringThree() {
 };
 
 // functionStringThree();
+
+
+function functionStringFour() {
+	/* Function 4 - Check URL */
+	/* Title-case a string (split into words, then uppercase the first letter of each word) */
+	var titleCaseString = function(myString) {
+		
+		var stringLength = myString.length;
+		var stringSplitIndex = 6; /* Random: Length of My Name */
+		
+		var firstName = myString.charAt(0).toUpperCase() + myString.substring(1, stringSplitIndex);
+		var lastName = myString.charAt(stringSplitIndex).toUpperCase() + myString.substring(stringSplitIndex+1, stringLength);
+		var lastNameInitial = myString.substring(stringSplitIndex, stringSplitIndex+1).toUpperCase();	
+		
+		var fullName = firstName + ' ' + lastName;
+		
+		return fullName;
+	};
+	
+	
+	var myName = "danielcampo";
+	
+	console.log("String Title Case Function");
+	console.log("-------------------------");
+	
+	console.log("String: "+ myName);
+	console.log("Full Name: "+ titleCaseString(myName));
+};
+
+// functionStringFour();
+	
