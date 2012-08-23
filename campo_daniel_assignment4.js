@@ -61,42 +61,42 @@ function functionStringOne() {
 
 
 function functionStringTwo() {
-/* Function 2 - Check Email Pattern */
-/* Does a string follow an aaa@bbb.ccc pattern like an email address? */
-var checkStringEmail = function(myString) {
-
-	var emailStringLength = myString.length;
+	/* Function 2 - Check Email Pattern */
+	/* Does a string follow an aaa@bbb.ccc pattern like an email address? */
+	var checkStringEmail = function(myString) {
 	
-	/* @ Symbol */
-	var emailAtSymbol = "@";
-	var emailAtSymbolIndex = myString.indexOf(emailAtSymbol, 0); /* Location of @ Symbol in myString */
+		var emailStringLength = myString.length;
+		
+		/* @ Symbol */
+		var emailAtSymbol = "@";
+		var emailAtSymbolIndex = myString.indexOf(emailAtSymbol, 0); /* Location of @ Symbol in myString */
+		
+		/* Fail if there is no @ symbol index number */
+		if (emailAtSymbolIndex == -1) {
+			return false;
+		}
+		
 	
-	/* Fail if there is no @ symbol index number */
-	if (emailAtSymbolIndex == -1) {
-		return false;
-	}
+		/* Email Domain Name */
+		var emailDomainSeparator = '.';
+		var emailDomainSeparatorIndex = myString.indexOf(emailDomainSeparator, 0); /* Location of . Symbol in myString */
+		
+		var emailDomain = myString.substring(emailDomainSeparatorIndex, emailStringLength);
+		var emailDomainLength = emailDomain.length;	
+		var emailDomainMaxChar = 4, emailDomainMinChar = 2; /* Min and Max Sizes for Domain Names */
+		
+		/* Fail if there is there are issues with the domain name */
+		if (emailDomainSeparatorIndex == -1 || emailDomainLength < emailDomainMinChar || emailDomainLength > emailDomainMaxChar) {
+			return false;
+		}
 	
-
-	/* Email Domain Name */
-	var emailDomainSeparator = '.';
-	var emailDomainSeparatorIndex = myString.indexOf(emailDomainSeparator, 0); /* Location of . Symbol in myString */
-	
-	var emailDomain = myString.substring(emailDomainSeparatorIndex, emailStringLength);
-	var emailDomainLength = emailDomain.length;	
-	var emailDomainMaxChar = 4, emailDomainMinChar = 2; /* Min and Max Sizes for Domain Names */
-	
-	/* Fail if there is there are issues with the domain name */
-	if (emailDomainSeparatorIndex == -1 || emailDomainLength < emailDomainMinChar || emailDomainLength > emailDomainMaxChar) {
-		return false;
-	}
-
-	var emailPrefix = myString.substring(0, emailAtSymbolIndex);
-	var emailSuffix = myString.substring(emailAtSymbolIndex+1, emailDomainSeparatorIndex);
-	
-	return true;
-	
-	
-};
+		var emailPrefix = myString.substring(0, emailAtSymbolIndex);
+		var emailSuffix = myString.substring(emailAtSymbolIndex+1, emailDomainSeparatorIndex);
+		
+		return true;
+		
+		
+	};
 
 	var emailCorrect = "abc@123.com", emailIncorrect = "abc123.com";
 	
@@ -122,3 +122,54 @@ var checkStringEmail = function(myString) {
 
 // functionStringTwo();
 
+
+
+function functionStringThree() {
+	/* Function 3 - Check URL */
+	/* Is the string a URL? (Does it start with http: or https:?) */
+	var checkStringURL = function(myString) {
+		
+		var stringHttp = "http://", stringHttps = "https://";
+		
+		var httpRegular = myString.substring(0,stringHttp.length);
+		var httpSecure = myString.substring(0,stringHttps.length);	
+			
+		/* Return False If String Does Not Begin with Regular HTTP */
+		if (httpRegular == stringHttp ) {
+			return true;
+		}
+		
+		else if (httpSecure == stringHttps ) {
+			return true;
+		}
+		
+		else {
+			return false;
+		};
+	};
+	/* Function 3 - Check URL */
+	/****************************************************/
+	
+		var linkCorrect = "http://test.com/", linkIncorrect = "link://test.com/";
+		
+		console.log("URL Check Function");
+		console.log("-------------------------");
+		
+		/* True */
+		if (checkStringURL(linkCorrect)) {
+			console.log("String: "+linkCorrect);
+			console.log("Is the string a URL? (Does it start with http: or https:?)? "+checkStringURL(linkCorrect));
+		}
+		
+		console.log(" ");
+		
+		/* False */
+		if (!checkStringURL(linkIncorrect)) {
+			console.log("String: "+linkIncorrect);
+			console.log("Is the string a URL? (Does it start with http: or https:?)? "+checkStringURL(linkIncorrect));
+		}
+		/* Function 3 - Check URL */
+		/****************************************************/	
+};
+
+// functionStringThree();
