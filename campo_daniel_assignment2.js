@@ -39,4 +39,23 @@ var goTraining = function (goal, mastered) {
 }
 goTraining(dropsuitClassesNum, classesMasteredNum);
 
+/*****************************************************************************/
+secbrk("Number Function");
+/*****************************************************************************/
+var classesToMaster = function (classesMasteredNum) {
+	var dropsuitClassesTotal = dropsuitClassesNum;
+
+	while(classesMasteredNum != dropsuitClassesTotal+1) {
+		var classesRemaining =  dropsuitClassesTotal - classesMasteredNum;
+		console.log("I've mastered " + classesMasteredNum + " classes so far.");
+		console.log("I have " + classesRemaining + " classes left to master.");
+		classesMasteredNum++;
+	};
+
+	return dropsuitClassesTotal;
+}
+
+classesToMaster(classesMasteredNum);
+
+
 function secbrk(name) { console.log(" ");console.log("------------------------------------------------");console.log(name);console.log("------------------------------------------------");console.log(" ");}; // For Output Purposes Only
