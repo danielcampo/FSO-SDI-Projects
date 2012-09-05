@@ -20,5 +20,23 @@ var classChecklist = function (classesMasteredNum) {
 
 classChecklist(classesMasteredNum);
 
+/*****************************************************************************/
+secbrk("Boolean Function");
+/*****************************************************************************/
+var goTraining = function (goal, mastered) {
+
+	if ((goal > 0) && mastered != goal) {
+		goTraining = true;
+		console.log("Do I need to train more to master all of the dropsuit classes? " + goTraining);
+	}
+
+	else {
+		goTraining = false;
+		console.log("Do I need to train more to master all of the dropsuit classes? " + goTraining);
+	};
+
+	return goTraining;
+}
+goTraining(dropsuitClassesNum, classesMasteredNum);
 
 function secbrk(name) { console.log(" ");console.log("------------------------------------------------");console.log(name);console.log("------------------------------------------------");console.log(" ");}; // For Output Purposes Only
