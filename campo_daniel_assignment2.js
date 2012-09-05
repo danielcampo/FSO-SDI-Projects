@@ -57,5 +57,18 @@ var classesToMaster = function (classesMasteredNum) {
 
 classesToMaster(classesMasteredNum);
 
+/*****************************************************************************/
+secbrk("String Function");
+/*****************************************************************************/
+var classesDisliked = function (class1, class2) {
+	var classesDislikeList = class1 + " and " + class2;
+
+	console.log("I have completely mastered " + classesMasteredNum + " dropsuit classes. I want to master all of the classes but I really dislike the " + classesDislikeList +" dropsuit classses.");
+
+	return(classesDislikeList);
+
+}
+classesDisliked("Logistics", "Heavy");
+
 
 function secbrk(name) { console.log(" ");console.log("------------------------------------------------");console.log(name);console.log("------------------------------------------------");console.log(" ");}; // For Output Purposes Only
