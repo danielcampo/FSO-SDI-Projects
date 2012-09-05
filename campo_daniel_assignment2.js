@@ -5,9 +5,20 @@ var mercenaryName = "Daniel",
 	dropsuitClassesNum = dropsuitClasses.length,
 	masterAllClasses = false;
 
+/*****************************************************************************/
+secbrk("Procedure Function");
+/*****************************************************************************/
+var classChecklist = function (classesMasteredNum) {
+	if (dropsuitClassesNum === classesMasteredNum) {
+		console.log("As one of the deadliest mercernaries in the Galaxy, I'm proficient in all " + dropsuitClassesNum + " dropsuit classes.");
+	}
 
+	else {
+		console.log("I still have some classes to master until I've mastered all " + dropsuitClassesNum + " dropsuit classes.");
+	};
+};
 
-
+classChecklist(classesMasteredNum);
 
 
 function secbrk(name) { console.log(" ");console.log("------------------------------------------------");console.log(name);console.log("------------------------------------------------");console.log(" ");}; // For Output Purposes Only
