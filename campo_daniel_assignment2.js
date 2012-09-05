@@ -70,5 +70,36 @@ var classesDisliked = function (class1, class2) {
 }
 classesDisliked("Logistics", "Heavy");
 
+/*****************************************************************************/
+secbrk("Array Function");
+/*****************************************************************************/
+var classWishlist = function (masteredNum, wishlist) {
+
+	var wishlistNum = wishlist.length,
+		classesTotal = dropsuitClassesNum - 1,
+		masteredList = [];
+		masteredList.push(classesMastered); // Push 'classesMastered' values to not overwrite original array
+
+
+	for(classesLeft = classesTotal - classesMasteredNum; classesLeft >= 0; classesLeft--) {
+		console.log("I really need to master the " + wishlist[classesLeft] + " dropsuit class.");
+
+		masteredList.push(wishlist[classesLeft]);
+
+		console.log("Great! I've mastered it. I've mastered the " + masteredList + " classes.");
+		console.log("I have " + classesLeft + " more classes to master until I've mastered them all.");
+
+		console.log(" ");
+	};
+
+	console.log("I've mastered all the dropsuit classes!");
+
+	return masteredList;
+}
+classWishlist(classesMasteredNum, ["Logistics", "Heavy"]);
+/*****************************************************************************/
+
+
+
 
 function secbrk(name) { console.log(" ");console.log("------------------------------------------------");console.log(name);console.log("------------------------------------------------");console.log(" ");}; // For Output Purposes Only
