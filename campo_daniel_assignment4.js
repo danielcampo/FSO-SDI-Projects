@@ -226,3 +226,100 @@ function stringCheckUrl() {
 };
 
 stringCheckUrl(); console.log(" ");
+
+
+
+
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+
+
+
+function stringTitleCase() {
+	/* Function 4 - Case String */
+	/* Title-case a string (split into words, then uppercase the first letter of each word) */
+	var titleCaseString = function(myString) {
+
+		var myStringLength = myString.length;
+		var result = "";
+
+		var symbolSpace = " ",
+			stringSpaces = myString.indexOf(symbolSpace, 0),
+			stringSpacesIndexes = [];
+
+
+		/* Check to See if String Contains a Space */
+		if (stringSpaces > -1) {
+
+			/* Array to hold all of the words between spaces */
+			var stringWords = [];
+
+			/* Add All Space Indexes to An Array */
+			while (stringSpaces > -1) {
+				stringSpacesIndexes.push(stringSpaces);
+				stringSpaces = myString.indexOf(symbolSpace, stringSpaces+1);
+			};
+
+			/* Add all words between each space to an array */
+			var spaceCount = 0;
+
+			for (i = 0; i <= stringSpacesIndexes.length-1; i++) {
+
+				stringWords.push(
+					myString.charAt(spaceCount).toUpperCase() +
+					myString.substring(spaceCount+1, stringSpacesIndexes[i])
+				);
+
+				/* If the last space has been reached, then add the rest of the string to the array */
+				if (i == stringSpacesIndexes.length-1) {
+					stringWords.push(
+						myString.charAt(stringSpacesIndexes[i]+1).toUpperCase() +
+						myString.substring(stringSpacesIndexes[i]+2, myStringLength)
+					);
+				}
+
+				/* If last space HAS NOT been reached, proceed with next space index */
+				else {
+					spaceCount = stringSpacesIndexes[i]+1;
+				};
+			};
+
+
+			for (i = 0; i <= stringWords.length-1; i++) {
+				result += stringWords[i] + " ";
+			}
+
+			return result;
+		}
+
+		/* No Space Strings */
+		else {
+			var stringSplitIndex = 6, /* Random Number */
+				firstName = myString.charAt(0).toUpperCase() + myString.substring(1, stringSplitIndex),
+				lastName = myString.charAt(stringSplitIndex).toUpperCase() + myString.substring(stringSplitIndex+1, myStringLength),
+				lastNameInitial = myString.substring(stringSplitIndex, stringSplitIndex+1).toUpperCase();
+
+			result = firstName + ' ' + lastName;
+
+			return result;
+		};
+
+	};
+
+
+	var myString = "this is a string with spaces";
+
+	console.log("4: String Title Case Function");
+	console.log("-------------------------");
+
+	console.log("Original String: "+ myString);
+	console.log("Result: "+ titleCaseString(myString));
+
+	console.log("-------------------------");
+	console.log("-------------------------");
+	/* Function 4 - Case String */
+};
+
+stringTitleCase(); console.log(" ");
