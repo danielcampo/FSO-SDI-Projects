@@ -68,3 +68,161 @@ function stringPhoneCheck() {
 };
 
 stringPhoneCheck(); console.log(" ");
+
+
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+
+
+
+function stringEmailCheck() {
+	/* Function 2 - Check Email Pattern */
+	/* Does a string follow an aaa@bbb.ccc pattern like an email address? */
+	var checkStringEmail = function(myString) {
+
+		var emailStringLength = myString.length;
+
+
+		/* Illegal Characters */
+		/* Check String for Illegal Characters */
+		var emailIllegalSymbols = [
+			"!", "#", "$" , "%" ,"&" , "'", "\"" ,"*" , "+" , "," , "=" , "?" , "^" , "`" , "{" , "|" , "}" ,"~", " "
+		];
+
+
+		for (symbol in emailIllegalSymbols) {
+			var emailIllegalSymbolIndexes = myString.indexOf(emailIllegalSymbols[symbol], 0); /* Location of Illegal Symbols in myString */
+
+			/* Return False if String Contains Illegal Characters */
+			if (emailIllegalSymbolIndexes != -1) {
+				return false;
+			};
+		};
+		/* END Illegal Characters */
+
+
+		/* @ Symbol */
+		/* Check String for an @ Symbol */
+		var emailAtSymbol = "@";
+		var emailAtSymbolIndex = myString.indexOf(emailAtSymbol, 0); /* Location of @ Symbol in myString */
+
+		/* Fail if there is no @ symbol index number */
+		if (emailAtSymbolIndex == -1) {
+			return false;
+		};
+		/* END @ Symbol */
+
+
+		/* Email Domain Name */
+		/* Check String for a Proper Domain Suffix */
+		var emailDomainSeparator = '.';
+		var emailDomainSeparatorIndex = myString.indexOf(emailDomainSeparator, 0); /* Location of . Symbol in myString */
+
+		var emailDomain = myString.substring(emailDomainSeparatorIndex, emailStringLength);
+		var emailDomainLength = emailDomain.length;
+		var emailDomainMaxChar = 4, emailDomainMinChar = 2; /* Min and Max Sizes for Domain Names */
+
+		/* Fail if there is there are issues with the domain name */
+		if (emailDomainSeparatorIndex == -1 || emailDomainLength < emailDomainMinChar || emailDomainLength > emailDomainMaxChar) {
+			return false;
+		};
+		/* END Email Domain Name */
+
+		var emailPrefix = myString.substring(0, emailAtSymbolIndex);
+		var emailSuffix = myString.substring(emailAtSymbolIndex+1, emailDomainSeparatorIndex);
+
+		return true;
+
+
+	};
+
+	var emailCorrect = "abc@123.com", emailIncorrect = "abc123.com";
+
+	console.log("2: Email Check Function");
+	console.log("-------------------------");
+
+	/* True */
+	if (checkStringEmail(emailCorrect)) {
+		console.log("String: "+emailCorrect);
+		console.log("Does a string follow an aaa@bbb.ccc pattern like an email address? "+checkStringEmail(emailCorrect));
+	};
+
+	console.log(" ");
+
+	/* False */
+	if (!checkStringEmail(emailIncorrect)) {
+		console.log("String: "+emailIncorrect);
+		console.log("Does a string follow an aaa@bbb.ccc pattern like an email address? "+checkStringEmail(emailIncorrect));
+	};
+
+	console.log("-------------------------");
+	console.log("-------------------------");
+	/* Function 2 - Check Email Pattern */
+	/****************************************************/
+};
+
+stringEmailCheck(); console.log(" ");
+
+
+
+
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+
+
+function stringCheckUrl() {
+	/* Function 3 - Check URL */
+	/* Is the string a URL? (Does it start with http: or https:?) */
+	var checkStringURL = function(myString) {
+
+		var stringHttp = "http://", stringHttps = "https://";
+
+		var httpRegular = myString.substring(0,stringHttp.length);
+		var httpSecure = myString.substring(0,stringHttps.length);
+
+		/* Return False If String Does Not Begin with Regular HTTP */
+		if (httpRegular == stringHttp ) {
+			return true;
+		}
+
+		else if (httpSecure == stringHttps ) {
+			return true;
+		}
+
+		else {
+			return false;
+		};
+	};
+	/* Function 3 - Check URL */
+	/****************************************************/
+
+		var linkCorrect = "http://test.com/", linkIncorrect = "link://test.com/";
+
+		console.log("3: URL Check Function");
+		console.log("-------------------------");
+
+		/* True */
+		if (checkStringURL(linkCorrect)) {
+			console.log("String: "+linkCorrect);
+			console.log("Is the string a URL? (Does it start with http: or https:?)? "+checkStringURL(linkCorrect));
+		}
+
+		console.log(" ");
+
+		/* False */
+		if (!checkStringURL(linkIncorrect)) {
+			console.log("String: "+linkIncorrect);
+			console.log("Is the string a URL? (Does it start with http: or https:?)? "+checkStringURL(linkIncorrect));
+		}
+
+		console.log("-------------------------");
+		console.log("-------------------------");
+		/* Function 3 - Check URL */
+		/****************************************************/
+};
+
+stringCheckUrl(); console.log(" ");
