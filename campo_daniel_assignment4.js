@@ -323,3 +323,49 @@ function stringTitleCase() {
 };
 
 stringTitleCase(); console.log(" ");
+
+
+
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+
+
+
+function stringSeparatorChanger() {
+	/* Function 5 - Change List Separator */
+	/*
+		Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
+	*/
+	var changeListSeparator = function(myString, alternateSeparator) {
+		if (!alternateSeparator) { alternateSeparator = "/"; };
+		return myString.replace(/,/g, alternateSeparator);
+	};
+
+
+	var myList = "a,b,c,d";
+
+	console.log("5: Change List Separator Function");
+	console.log("-------------------------");
+
+	console.log("String: "+ myList);
+	console.log("String [Revised]: "+ changeListSeparator(myList, "-"));
+
+	console.log("-------------------------");
+	console.log("-------------------------");
+
+	/* Function 5 - Change List Separator */
+	/****************************************************/
+
+};
+
+stringSeparatorChanger(); console.log(" ");
+
+
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+
+
